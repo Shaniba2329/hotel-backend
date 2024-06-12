@@ -14,6 +14,17 @@ app.post("/add",(req,res)=>{
     hotel.save()
     res.json({"status":"success"})
 })
+app.post("/viewall",(req,res)=>{
+    hotelmodel.find().then(
+        (data)=>{
+            res.json(data)
+        }
+    ).catch(
+        (error)=>{
+            res.json(error)
+        }
+    )
+})
 
 app.listen(8080,()=>{
     console.log("server started")
